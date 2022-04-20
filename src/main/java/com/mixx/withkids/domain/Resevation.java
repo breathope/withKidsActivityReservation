@@ -18,7 +18,7 @@ public class Resevation {
 
 
     @Id @GeneratedValue
-    Long id;
+    Long reservationId;
 
     public boolean checkNoShow() {
         if((new Date()).after(getReserveDate())) {
