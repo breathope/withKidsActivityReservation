@@ -22,14 +22,18 @@ public class WithKidsApplication {
 
 		Repository repository = applicationContext.getBean(Repository.class);
 
-		Resevation reservarion = new Resevation();
-		reservarion.setReserveDate(new Date());
-		reservarion.setCanceled(false);
+		Resevation reservation = new Resevation();
+		reservation.setActName("샘플활동");
+		reservation.setActCode(2022041111);
+		reservation.setReserveDate(new Date());
+		reservation.setCategory("샘플카테고리");
+		reservation.setLocation("서울 강남");
+		reservation.setCanceled(false);
 
-		repository.save(reservarion);
+		repository.save(reservation);
 
-		System.out.println(reservarion.checkNoShow());
-		System.out.println(reservarion.checkNoShow() == false);
+		System.out.println(reservation.checkNoShow());
+		System.out.println(reservation.checkNoShow() == false);
 	}
 
 }
