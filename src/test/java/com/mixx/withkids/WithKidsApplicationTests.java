@@ -1,10 +1,10 @@
-package com.demo.petstore;
+package com.mixx.withkids;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PetstoreApplicationTests {
+class WithKidsApplicationTests {
 
 	@Test
 	void contextLoads() {
