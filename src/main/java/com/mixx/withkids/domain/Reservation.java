@@ -29,8 +29,7 @@ public class Reservation {
         }
     }
 
-    public Reservation(String actName, Long actCode, String provider, String location, String category,
-            Date reserveAt) {
+    public Reservation(String actName, Long actCode, String provider, String location, String category, Date reserveAt) {
         this.actName = actName;
         this.actCode = actCode;
         this.provider = provider;
