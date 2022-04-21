@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Resevation {
+public class Reservation {
     String actName;     // 활동명
     Long actCode;       // 활동 등록코드
     String location;    // 활동지역 ?? 

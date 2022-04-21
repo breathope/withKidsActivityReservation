@@ -3,7 +3,7 @@ package com.mixx.withkids;
 import java.util.Date;
 
 import com.mixx.withkids.domain.Repository;
-import com.mixx.withkids.domain.Resevation;
+import com.mixx.withkids.domain.Reservation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,7 +22,7 @@ public class WithKidsApplication {
 
 		Repository repository = applicationContext.getBean(Repository.class);
 
-		Resevation reservation = new Resevation();
+		Reservation reservation = new Reservation();
 		reservation.setActName("샘플활동");
 		reservation.setActCode(2022041111);
 		reservation.setReserveDate(new Date());
