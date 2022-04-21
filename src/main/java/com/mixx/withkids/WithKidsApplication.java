@@ -25,7 +25,7 @@ public class WithKidsApplication {
 		Reservation reservation = new Reservation();
 		reservation.setActName("샘플활동");
 		reservation.setActCode(2022041111);
-		reservation.setReserveDate(new Date());
+		reservation.setReserveAt(new Date());
 		reservation.setCategory("샘플카테고리");
 		reservation.setLocation("서울 강남");
 		reservation.setCanceled(false);
