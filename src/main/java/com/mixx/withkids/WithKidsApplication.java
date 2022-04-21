@@ -22,13 +22,14 @@ public class WithKidsApplication {
 
 		Repository repository = applicationContext.getBean(Repository.class);
 
-		Reservation reservation = new Reservation();
-		reservation.setActName("샘플활동");
-		reservation.setActCode(2022041111);
-		reservation.setReserveAt(new Date());
-		reservation.setCategory("샘플카테고리");
-		reservation.setLocation("서울 강남");
-		reservation.setCanceled(false);
+		Date reserveDate = new Date();
+		Reservation reservation = new Reservation("샘플활동", (long) 22222111, "레고랜드", "강원/춘천", "테마파크", reserveDate);
+		// reservation.setActName("샘플활동");
+		// reservation.setActCode(2022041111);
+		// reservation.setReserveAt(new Date());
+		// reservation.setCategory("샘플카테고리");
+		// reservation.setLocation("서울 강남");
+		// reservation.setCanceled(false);
 
 		repository.save(reservation);
 
