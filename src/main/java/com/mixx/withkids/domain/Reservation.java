@@ -107,11 +107,20 @@ public class Reservation {
         this.isCanceled = isCanceled;
     }
 
+    public Long getReserverId() {
+        return reserverId;
+    }
+
+    public void setReserverId(Long reserverId) {
+        this.reserverId = reserverId;
+    }
+
     @Override
     public String toString() {
         return "Reservation [activityId=" + activityId + ", activityName=" + activityName + ", category=" + category
                 + ", isCanceled=" + isCanceled + ", location=" + location + ", modifyAt=" + modifyAt + ", provider="
-                + provider + ", reservationId=" + reservationId + ", reserveAt=" + reserveAt + "]";
+                + provider + ", reservationId=" + reservationId + ", reserveAt=" + reserveAt + ", reserverId="
+                + reserverId + "]";
     }
 
     @Override
@@ -127,6 +136,7 @@ public class Reservation {
         result = prime * result + ((provider == null) ? 0 : provider.hashCode());
         result = prime * result + ((reservationId == null) ? 0 : reservationId.hashCode());
         result = prime * result + ((reserveAt == null) ? 0 : reserveAt.hashCode());
+        result = prime * result + ((reserverId == null) ? 0 : reserverId.hashCode());
         return result;
     }
 
@@ -181,8 +191,15 @@ public class Reservation {
                 return false;
         } else if (!reserveAt.equals(other.reserveAt))
             return false;
+        if (reserverId == null) {
+            if (other.reserverId != null)
+                return false;
+        } else if (!reserverId.equals(other.reserverId))
+            return false;
         return true;
     }
+
+
 
     
 }
