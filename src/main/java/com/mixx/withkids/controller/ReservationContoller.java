@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mixx.withkids.domain.Reservation;
 import com.mixx.withkids.domain.ReservationRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,9 @@ public class ReservationContoller {
 
     // 전체목록 - 관리자
     @RequestMapping(value="list", method=RequestMethod.GET)
-    public List<String> requestReservationList() {
-        List<String> tmpRes = new ArrayList<>();
-        tmpRes.add("example");
+    public List<Reservation> requestReservationList() {
+        List<Reservation> tmpRes = new ArrayList<>();
+        // tmpRes.add("example");
  
         return tmpRes;
     }
@@ -41,9 +42,9 @@ public class ReservationContoller {
     // 사용자별 예약 목록
     // DTO 정의 필요
     @RequestMapping(value="list/user/{reserverId}", method=RequestMethod.GET)
-    public List<String> requestReservationListByUser(@PathVariable(value = "reserverId") Long reserverId) {
-       List<String> tmpRes = new ArrayList<>();
-       tmpRes.add("example");
+    public List<Reservation> requestReservationListByUser(@PathVariable(value = "reserverId") Long reserverId) {
+       List<Reservation> tmpRes = new ArrayList<>();
+    //    tmpRes.add("example");
 
        return tmpRes;
     }
@@ -51,9 +52,9 @@ public class ReservationContoller {
     // 제공자별 예약 목록
     // DTO 정의 필요
     @RequestMapping(value="list/provider/{providerId}", method=RequestMethod.GET)
-    public List<String> requestReservationListByProvider(@PathVariable(value = "providerId") Long providerId) {
-        List<String> tmpRes = new ArrayList<>();
-        tmpRes.add("example");
+    public List<Reservation> requestReservationListByProvider(@PathVariable(value = "providerId") Long providerId) {
+        List<Reservation> tmpRes = new ArrayList<>();
+        // tmpRes.add("example");
  
         return tmpRes;
     }
@@ -62,10 +63,10 @@ public class ReservationContoller {
     // 취소 목록
     // DTO 정의 필요
     @RequestMapping(value="list/canceled/{providerId}", method=RequestMethod.GET)
-    public List<String> requestCanceledReservationListByProvider(@PathVariable(value = "providerId") Long providerId) {
+    public List<Reservation> requestCanceledReservationListByProvider(@PathVariable(value = "providerId") Long providerId) {
         // providerId 없는 경우 관리자 - 전체 취소목록 조회
-        List<String> tmpRes = new ArrayList<>();
-        tmpRes.add("example");
+        List<Reservation> tmpRes = new ArrayList<>();
+        // tmpRes.add("example");
  
         return tmpRes;
     }
@@ -73,10 +74,10 @@ public class ReservationContoller {
     // 전체 취소 목록
     // DTO 정의 필요
     @RequestMapping(value="list/canceled", method=RequestMethod.GET)
-    public List<String> requestCanceledReservationList() {
+    public List<Reservation> requestCanceledReservationList() {
         // providerId 없는 경우 관리자 - 전체 취소목록 조회
-        List<String> tmpRes = new ArrayList<>();
-        tmpRes.add("example");
+        List<Reservation> tmpRes = new ArrayList<>();
+        // tmpRes.add("example");
  
         return tmpRes;
     }
