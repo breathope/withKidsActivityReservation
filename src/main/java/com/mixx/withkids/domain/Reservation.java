@@ -16,6 +16,7 @@ public class Reservation {
     String provider;    // 활동 제공자(업체) | 중복성 컬럼
     String location;    // 활동지역 ??  | 중복성 컬럼
     String category;    // 카테코리 ??  | 중복성 컬럼
+    Long reserverId;    // 예약자(유저) 아이디
     Date reserveAt;   // 예약일자
     Date modifyAt;  // 예약 마지막 수정일자
     boolean isCanceled; // 취소 여부
