@@ -13,6 +13,7 @@ public class Reservation {
 
     String activityName;     // 활동명 | 중복성 컬럼
     Long activityId;       // 활동 Entity ID
+    Long providerId;       // 활동 제공자 ID | 중복성 컬럼
     String provider;    // 활동 제공자(업체) | 중복성 컬럼
     String location;    // 활동지역 ??  | 중복성 컬럼
     String category;    // 카테코리 ??  | 중복성 컬럼
@@ -57,6 +58,15 @@ public class Reservation {
 
     public void setActivityId(Long activityId) {
         this.activityId = activityId;
+    }
+
+    
+    public Long getProviderId() {
+        return providerId;
+    }
+
+    public void setProviderId(Long providerId) {
+        this.providerId = providerId;
     }
 
     public String getProvider() {
