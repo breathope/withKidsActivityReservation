@@ -2,8 +2,8 @@ package com.mixx.withkids;
 
 import java.util.Date;
 
-import com.mixx.withkids.domain.Repository;
 import com.mixx.withkids.domain.Reservation;
+import com.mixx.withkids.domain.ReservationRepository;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,7 +20,7 @@ public class WithKidsApplication {
 	public static void main(String[] args) {
 		applicationContext = SpringApplication.run(WithKidsApplication.class, args);
 
-		Repository repository = applicationContext.getBean(Repository.class);
+		ReservationRepository repository = applicationContext.getBean(ReservationRepository.class);
 
 		Date reserveDate = new Date();
 		Reservation reservation = new Reservation("샘플활동", (long) 22222111, "레고랜드", "강원/춘천", "테마파크", reserveDate);
