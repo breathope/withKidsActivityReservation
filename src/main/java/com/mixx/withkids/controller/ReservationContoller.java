@@ -9,9 +9,9 @@ import com.mixx.withkids.domain.ReservationRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
@@ -22,8 +22,9 @@ public class ReservationContoller {
 
     
     // 예약 등록
+    // DTO 정의 필요
     @RequestMapping(value="", method=RequestMethod.POST)
-    public String requestMethodName(@RequestParam String param) {
+    public String requestMethodName(@RequestBody String body) {
         return "예약 등록됨";
     }
 
