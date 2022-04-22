@@ -88,7 +88,7 @@ public class ReservationContoller {
     }
     
     // 예약 취소
-    @RequestMapping(value="/cancel/{reservationId}", method=RequestMethod.GET)
+    @RequestMapping(value="/cancel/{reservationId}", method=RequestMethod.PATCH)
     public String requestCancelResevation(@PathVariable(value = "reservationId") Long reservationId) {
         return "예약 취소됨";
     }
