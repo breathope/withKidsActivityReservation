@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RestController
 public class ReservationContoller {
     @Autowired
-    ReservationRepository reserverRepo;
+    ReservationRepository reservationRepo;
 
     
     // 예약 등록
