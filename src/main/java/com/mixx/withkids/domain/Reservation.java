@@ -8,18 +8,18 @@ import javax.persistence.Id;
 
 @Entity
 public class Reservation {
-    String actName;     // 활동명
-    Long actCode;       // 활동 등록코드
-    String provider;    // 활동 제공자(업체)
-    String location;    // 활동지역 ?? 
-    String category;    // 카테코리 ??
+    @Id @GeneratedValue
+    Long reservationId;     // 예약 아이디
+
+    String activityName;     // 활동명 | 중복성 컬럼
+    Long activityId;       // 활동 Entity ID
+    String provider;    // 활동 제공자(업체) | 중복성 컬럼
+    String location;    // 활동지역 ??  | 중복성 컬럼
+    String category;    // 카테코리 ??  | 중복성 컬럼
     Date reserveAt;   // 예약일자
     Date modifyAt;  // 예약 마지막 수정일자
     boolean isCanceled; // 취소 여부
 
-
-    @Id @GeneratedValue
-    Long reservationId;
 
     public boolean checkNoShow() {
         if((new Date()).after(getReserveAt())) {
@@ -29,100 +29,102 @@ public class Reservation {
         }
     }
 
-    public Reservation(String actName, Long actCode, String provider, String location, String category, Date reserveAt) {
-        this.actName = actName;
-        this.actCode = actCode;
+    public Reservation(String activityName, Long activityId, String provider, String location, String category, Date reserveAt) {
+        this.activityName = activityName;
+        this.activityId = activityId;
         this.provider = provider;
         this.location = location;
         this.category = category;
         this.reserveAt = reserveAt;
     }
 
+    public Long getReservationId() {
+        return reservationId;
+    }
 
-    public String getActName() {
-        return actName;
+    public String getActivityName() {
+        return activityName;
     }
-    // public void setActName(String actName) {
-    //     this.actName = actName;
-    // }
-    public long getActCode() {
-        return actCode;
+
+    public void setActivityName(String activityName) {
+        this.activityName = activityName;
     }
-    // public void setActCode(long actCode) {
-    //     this.actCode = actCode;
-    // }
-    public String getLocation() {
-        return location;
+
+    public Long getActivityId() {
+        return activityId;
     }
-    // public void setLocation(String location) {
-    //     this.location = location;
-    // }
-    public String getCategory() {
-        return category;
+
+    public void setActivityId(Long activityId) {
+        this.activityId = activityId;
     }
-    // public void setCategory(String category) {
-    //     this.category = category;
-    // }
-    public boolean isCanceled() {
-        return isCanceled;
-    }
-    // public void setCanceled(boolean isCanceled) {
-    //     this.isCanceled = isCanceled;
-    // }
-    // public void setActCode(Long actCode) {
-    //     this.actCode = actCode;
-    // }
 
     public String getProvider() {
         return provider;
     }
 
-    // public void setProvider(String provider) {
-    //     this.provider = provider;
-    // }
-
-    public Long getReservationId() {
-        return reservationId;
+    public void setProvider(String provider) {
+        this.provider = provider;
     }
 
-    // public void setReservationId(Long reservationId) {
-    //     this.reservationId = reservationId;
-    // }
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     public Date getReserveAt() {
         return reserveAt;
     }
 
-    // public void setReserveAt(Date reserveAt) {
-    //     this.reserveAt = reserveAt;
-    // }
+    public void setReserveAt(Date reserveAt) {
+        this.reserveAt = reserveAt;
+    }
 
     public Date getModifyAt() {
         return modifyAt;
     }
 
-    // public void setModifyAt(Date modifyAt) {
-    //     this.modifyAt = modifyAt;
-    // }
+    public void setModifyAt(Date modifyAt) {
+        this.modifyAt = modifyAt;
+    }
+
+    public boolean isCanceled() {
+        return isCanceled;
+    }
+
+    public void setCanceled(boolean isCanceled) {
+        this.isCanceled = isCanceled;
+    }
 
     @Override
     public String toString() {
-        return "Reservation [actCode=" + actCode + ", actName=" + actName + ", category=" + category + ", isCanceled="
-                + isCanceled + ", location=" + location + ", modifyAt=" + modifyAt + ", provider=" + provider
-                + ", reservationId=" + reservationId + ", reserveAt=" + reserveAt + "]";
+        return "Reservation [activityId=" + activityId + ", activityName=" + activityName + ", category=" + category
+                + ", isCanceled=" + isCanceled + ", location=" + location + ", modifyAt=" + modifyAt + ", provider="
+                + provider + ", reservationId=" + reservationId + ", reserveAt=" + reserveAt + "]";
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((actCode == null) ? 0 : actCode.hashCode());
-        result = prime * result + ((actName == null) ? 0 : actName.hashCode());
+        result = prime * result + ((activityId == null) ? 0 : activityId.hashCode());
+        result = prime * result + ((activityName == null) ? 0 : activityName.hashCode());
         result = prime * result + ((category == null) ? 0 : category.hashCode());
         result = prime * result + (isCanceled ? 1231 : 1237);
         result = prime * result + ((location == null) ? 0 : location.hashCode());
         result = prime * result + ((modifyAt == null) ? 0 : modifyAt.hashCode());
         result = prime * result + ((provider == null) ? 0 : provider.hashCode());
+        result = prime * result + ((reservationId == null) ? 0 : reservationId.hashCode());
         result = prime * result + ((reserveAt == null) ? 0 : reserveAt.hashCode());
         return result;
     }
@@ -136,15 +138,15 @@ public class Reservation {
         if (getClass() != obj.getClass())
             return false;
         Reservation other = (Reservation) obj;
-        if (actCode == null) {
-            if (other.actCode != null)
+        if (activityId == null) {
+            if (other.activityId != null)
                 return false;
-        } else if (!actCode.equals(other.actCode))
+        } else if (!activityId.equals(other.activityId))
             return false;
-        if (actName == null) {
-            if (other.actName != null)
+        if (activityName == null) {
+            if (other.activityName != null)
                 return false;
-        } else if (!actName.equals(other.actName))
+        } else if (!activityName.equals(other.activityName))
             return false;
         if (category == null) {
             if (other.category != null)
@@ -168,6 +170,11 @@ public class Reservation {
                 return false;
         } else if (!provider.equals(other.provider))
             return false;
+        if (reservationId == null) {
+            if (other.reservationId != null)
+                return false;
+        } else if (!reservationId.equals(other.reservationId))
+            return false;
         if (reserveAt == null) {
             if (other.reserveAt != null)
                 return false;
@@ -175,6 +182,6 @@ public class Reservation {
             return false;
         return true;
     }
-    
+
     
 }
