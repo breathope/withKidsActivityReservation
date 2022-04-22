@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import com.mixx.withkids.domain.Reservation;
 import com.mixx.withkids.domain.ReservationRepository;
@@ -39,14 +40,14 @@ public class ReservationContoller {
     // 사용자별 예약 목록
     // DTO 정의 필요
     @RequestMapping(value="list/user/{reserverId}", method=RequestMethod.GET)
-    public List<Reservation> requestReservationListByUser(@PathVariable(value = "reserverId") Long reserverId) {
+    public Optional<Reservation> requestReservationListByUser(@PathVariable(value = "reserverId") Long reserverId) {
         return reservationRepo.findByReserverId(reserverId);
     }
 
     // 제공자별 예약 목록
     // DTO 정의 필요
     @RequestMapping(value="list/provider/{providerId}", method=RequestMethod.GET)
-    public List<Reservation> requestReservationListByProvider(@PathVariable(value = "providerId") Long providerId) {
+    public Optional<Reservation> requestReservationListByProvider(@PathVariable(value = "providerId") Long providerId) {
         return reservationRepo.findByProviderId(providerId);
     }
 
@@ -54,14 +55,14 @@ public class ReservationContoller {
     // 취소 목록
     // DTO 정의 필요
     @RequestMapping(value="list/canceled/{providerId}", method=RequestMethod.GET)
-    public List<Reservation> requestCanceledReservationListByProvider(@PathVariable(value = "providerId") Long providerId) {
-        return null;
+    public Optional<Reservation> requestCanceledReservationListByProvider(@PathVariable(value = "providerId") Long providerId) {
+        return reservationRepo.findByProviderIdAndisCanceledTrue(providerId);
     }
 
     // 전체 취소 목록
     // DTO 정의 필요
     @RequestMapping(value="list/canceled", method=RequestMethod.GET)
-    public List<Reservation> requestCanceledReservationList() {
+    public Optional<Reservation> requestCanceledReservationList() {
         return reservationRepo.findByisCanceledTrue();
     }
 
