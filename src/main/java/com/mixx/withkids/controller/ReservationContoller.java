@@ -61,7 +61,18 @@ public class ReservationContoller {
     // 취소 목록
     // DTO 정의 필요
     @RequestMapping(value="list/canceled/{providerId}", method=RequestMethod.GET)
-    public List<String> requestCanceledReservationList(@PathVariable(value = "providerId") Long providerId) {
+    public List<String> requestCanceledReservationListByProvider(@PathVariable(value = "providerId") Long providerId) {
+        // providerId 없는 경우 관리자 - 전체 취소목록 조회
+        List<String> tmpRes = new ArrayList<>();
+        tmpRes.add("example");
+ 
+        return tmpRes;
+    }
+
+    // 전체 취소 목록
+    // DTO 정의 필요
+    @RequestMapping(value="list/canceled", method=RequestMethod.GET)
+    public List<String> requestCanceledReservationList() {
         // providerId 없는 경우 관리자 - 전체 취소목록 조회
         List<String> tmpRes = new ArrayList<>();
         tmpRes.add("example");
@@ -70,7 +81,7 @@ public class ReservationContoller {
     }
 
     // 예약 수정
-    @RequestMapping(value="/modify/{reservationId}}", method=RequestMethod.PATCH)
+    @RequestMapping(value="/modify/{reservationId}", method=RequestMethod.PATCH)
     public String requestReservationModify(@PathVariable(value = "reservationId") Long reservationId) {
         return "예약 수정됨";
     }
