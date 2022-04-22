@@ -1,4 +1,4 @@
-package com.mixx.withkids.domain.contoller;
+package com.mixx.withkids.domain.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
